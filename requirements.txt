@@ -1,0 +1,11 @@
+dvc
+dvclive
+dvc[s3]
+dvc[gs]
+evidently
+matplotlib
+numpy
+pandas
+scikit-learn
+torch
+torchvision

@@ -1,0 +1,39 @@
+stages:
+  prepare:
+    cmd: pythonsrc/prepare.py
+    deps:
+      - ./data/train.csv
+      - ./data/test.csv
+    outs:
+      - test_1.pkl
+      - train_1.pkl
+  train:
+    cmd: python src/train.py ./data/ ./models/model.pkl
+    deps: 
+      - ./data/train_1.pkl
+      - ./src/train.py
+    params:
+      - train.seed
+      - train.n_est
+      - train.min_splits
+    outs:
+      - ./models/model.pkl
+
+  evaluate:
+    cmd: python src/evaluate.py ./models/model.pkl ./data scores.json prc.json roc.json
+    deps:
+      - ./data
+      - ./models/model.pkl
+      - src/evaluate.py
+    metrics:
+      - scores.json:
+          cache: false
+    plots:
+      - prc.json:
+          cache: false
+          x: recall
+          y: precision
+      - roc.json:
+          cache: false
+          x: fpr
+          y: tpr

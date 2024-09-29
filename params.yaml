@@ -1,0 +1,4 @@
+train:
+  seed : 20210428
+  n_est : 300
+  min_splits : 75
