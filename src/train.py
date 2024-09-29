@@ -28,7 +28,7 @@ x = matrix.iloc[:, 1: 11].values
 sys.stderr.write("Input matrix size {}\n".format(matrix.shape))
 sys.stderr.write("X matrix size {}\n".format(x.shape))
 sys.stderr.write("Y matrix {}\n".format(labels.shape))
-mlops
+
 clf = RandomForestClassifier(
     n_estimators=n_est,
     min_samples_split=min_split,
