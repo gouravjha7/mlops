@@ -1,6 +1,6 @@
 stages:
   prepare:
-    cmd: pythonsrc/prepare.py
+    cmd: python src/prepare.py
     deps:
       - ./data/train.csv
       - ./data/test.csv
